@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bean="http://www.springframework.org/schema/c"
+             xmlns:sec="http://www.springframework.org/schema/p"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+		   	
+    <http auto-config="false">
+        <intercept-url pattern="/painel/**" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/afiliado/painel/**" access="hasRole('ROLE_AFILIADO')"/>
+
+        <form-login
+        login-page="/login"
+        default-target-url="/painel"
+        authentication-failure-url="/login?error"
+        authentication-failure-handler-ref="loginFailureHandler"
+        username-parameter="cpf"
+        password-parameter="senha"
+        authentication-success-handler-ref="mySimpleUrlAuthenticationSuccessHandler" />
+
+        <headers>
+        	<frame-options disabled="true"/>
+    	</headers>
+    	<csrf request-matcher-ref="csrfSecurityRequestMatcher"/>
+        <custom-filter ref="logoutFilter" position="LOGOUT_FILTER"/>
+    </http>  
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+            <password-encoder ref="encoder"></password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+    
+    <beans:bean id="userDetailsServiceImpl" class="com.dhp.service.UserDetailsServiceImpl"></beans:bean>
+    <beans:bean id="csrfSecurityRequestMatcher" class="com.dhp.util.CsrfSecurityRequestMatcher"></beans:bean>
+    <beans:bean id="mySimpleUrlAuthenticationSuccessHandler" class="com.dhp.util.MySimpleUrlAuthenticationSuccessHandler"></beans:bean>
+
+    <beans:bean id="loginFailureHandler" class="com.dhp.util.LoginFailureHandler"></beans:bean>
+
+
+    <beans:bean id="encoder"
+          class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+
+    <beans:bean id="logoutFilter"
+          class="org.springframework.security.web.authentication.logout.LogoutFilter">
+        <beans:constructor-arg  name="logoutSuccessHandler" ref="LogoutSuccessHandlerFilter"/>
+        <beans:constructor-arg  name="handlers">
+            <beans:list>
+                <beans:ref bean="securityContextLogoutHandler" />
+                <beans:ref bean="LogoutHandlerFilter" />
+            </beans:list>
+        </beans:constructor-arg>
+        <beans:property name="filterProcessesUrl" value="/logout"/>
+    </beans:bean>
+
+    <beans:bean id="LogoutSuccessHandlerFilter" name="LogoutSuccessHandlerFilter" class="com.dhp.util.SuccessLogoutHandlerFilter"/>
+    <beans:bean id="LogoutHandlerFilter" name="LogoutHandlerFilter" class="com.dhp.util.LogoutHandlerFilter"/>
+
+    <beans:bean id="securityContextLogoutHandler"
+          name="securityContextLogoutHandler"
+          class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler">
+        <beans:property name="invalidateHttpSession" value="true"/>
+    </beans:bean>
+
+</beans:beans>

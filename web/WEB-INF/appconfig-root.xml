@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <import resource="appconfig-security.xml"/>
+
+    <import resource="appconfig-mvc.xml"/>
+
+    <import resource="appconfig-data.xml"/>
+
+
+    <!-- Scans within the base package of the application for @Component classes to configure as beans -->
+    <context:component-scan base-package="com.dhp.*"/>
+
+    <context:property-placeholder location="classpath:application.properties"/>
+    
+   	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		 <!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="100000" />
+	</bean>
+	
+	    <!-- SET default mail properties -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="admin@btcmoedas.com.br"/>
+        <property name="password" value="s3rp3nt@666"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+   <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="WEB-INF/classes/messages" />
+	</bean>
+
+    <task:executor id="myexecutor" pool-size="5"  />
+    <task:annotation-driven executor="myexecutor"/>
+
+    <beans>
+        <cache:annotation-driven />
+
+        <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+            <property name="caches">
+                <set>
+                    <bean
+                            class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
+                            name="addresses"/>
+                </set>
+            </property>
+        </bean>
+    </beans>
+
+</beans>

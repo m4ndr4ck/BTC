@@ -1,0 +1,311 @@
+#bodybg {
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4)
+		10%, rgba(138, 114, 76, 0) 40%),
+		linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%,
+		rgba(42, 60, 87, .4) 100%),
+		linear-gradient(135deg, #670d10 0%, #092756 100%);
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4)
+		10%, rgba(138, 114, 76, 0) 40%),
+		-moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%,
+		rgba(42, 60, 87, .4) 100%),
+		-moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4)
+		10%, rgba(138, 114, 76, 0) 40%),
+		-o-linear-gradient(top, rgba(57, 173, 219, .25) 0%,
+		rgba(42, 60, 87, .4) 100%),
+		-o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4)
+		10%, rgba(138, 114, 76, 0) 40%),
+		-ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%,
+		rgba(42, 60, 87, .4) 100%),
+		-ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+}
+
+#container {
+	padding-bottom: 4%;
+	text-align: center;
+}
+
+#logo {
+	color: #fff;
+	text-shadow: 0 0 10px rgba(0,0,0,0.3);
+	letter-spacing: 1px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 2.4em !important;
+	padding-bottom: 3%;
+}
+
+#cotacaoDiv {
+	background-color: #545454;
+	padding-top: 10px;
+	border-radius: 6px;
+	padding-bottom: 10px;
+	text-align: center;
+	border: none;
+}
+
+#cotacaoH3 {
+	color: #fff;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size: 19px;
+}
+
+#real {
+	background-color: #edffed !important;
+	background:
+		url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG2YAABzjgAA4DIAAIM2AAB5CAAAxgwAADT6AAAgbL5TJ5gAAABGSURBVHjaYvz//z8DOYCJgUzA0tnZidPK8vJyRpw24pLEpwnuVHRFhDQxMDAwMPz//x+OOzo6/iPz8WFGuocqAAAA//8DAD/sORHYg7kaAAAAAElFTkSuQmCC)
+		right center no-repeat;
+}
+
+#nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#nav li {
+	display: inline;
+}
+
+#nav li a {
+	display: inline;
+	padding: 10px 5px;
+}
+
+#nav a {
+	display: inline-block;
+}
+
+#tabledocumentos{
+	background: #fbfbfb;width: 65%;
+}
+
+.table-bordered {
+	border: 1px solid #b7a8a8 !important;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th,
+	.table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th,
+	.table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #b7a8a8 !important;
+}
+
+.table-bordered>thead>tr>th {
+	border-bottom-width: 1px;
+}
+
+.input-add-contabancaria {
+	width:40% !important;
+}
+
+.inputresgates{
+	width: 50% !important;
+}
+
+#endereco-btc {
+	font-size: 1.3em;
+}
+
+#saldo-btc {
+	font-size: 1.3em;
+}
+
+#menu {
+	font-size: 1.2em;
+}
+
+#cotacao {
+	font-size: 19px;
+}
+
+#inputReal {
+	width: 40%;
+}
+
+#tabelaConfirma {
+	width: 95%;
+}
+
+#fontTabela {
+	font-size: 13px;
+	text-align: center;
+}
+
+#textodocumentos{
+	width: 63%;
+}
+
+#meiosdepagamento{
+	width:100%;
+}
+
+#pagamentosrow{
+	padding: 0 150px;
+}
+
+.errorGeneric{
+	display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #b76e6e;
+}
+
+.pAfiliado{
+	font-size: 14px !important;
+	text-align: justify;
+}
+	
+@media screen and (max-width: 600px) {
+
+	#pagamentosrow{
+		padding: 0;
+	}
+
+
+	h4{
+	font-size: 15px !important;
+	}
+	
+	h3{
+	font-size: 20px !important;
+	}
+	
+	h2{
+    font-size: 20px !important;
+	}
+
+	.pagamentosimg{
+		width: 100px;
+	}
+	
+	.table-bordered {
+	    border: none !important;
+	}
+			
+	.last-row-responsive-resgates {
+	background-color:#c6eac6;
+	}
+	
+	.input-add-contabancaria {
+	width:70% !important;
+	}
+	
+	.inputresgates {
+	width: 70% !important;
+	}
+	
+	.tdresgate {
+	text-align: left;
+	}
+
+	#meiosdepagamento{
+		width:100%;
+	}
+	
+	#tabledocumentos{
+	background: transparent;width: 65%;
+	}
+	
+	#tabledocumentos tr{
+	margin-bottom: .325em !important;
+	}
+	
+	#tabledocumentos td{
+	background: white;
+	}
+	
+	#divdocumentos{
+	width:90%;
+	}
+	
+	#textodocumentos{
+	width: 90%;
+	}
+	
+	#endereco-btc {
+		font-size: 0.88em;
+	}
+	#saldo-btc {
+		font-size: 0.79em;
+	}
+	#menu {
+		font-size: 1.1em;
+	}
+	#cotacao {
+		font-size: 0.82em;
+	}
+	#inputReal {
+		width: 80%;
+	}
+	#tabelaConfirma {
+	    width: 100%;	
+	}
+	#cotacaoH3 {
+	color: #fff;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size: 14.2px !important;
+	}
+	#fontTabela {
+    font-size: 13px;
+    text-align: right;
+	}
+	
+  table {
+    border: 0;
+  }
+  table caption {
+    font-size: 1.3em;
+  }
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  table td:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+	
+
+
+.errorGeneric {
+	color: #ca7979;
+	line-height: 30px;
+}
+
+.errorCadastro {
+	color: #ff9090;
+    display: inline-block;
+    font-size: 14px;
+    padding-bottom: 8px;
+}
